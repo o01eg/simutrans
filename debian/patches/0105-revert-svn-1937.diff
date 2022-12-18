@@ -1,0 +1,20 @@
+From: Ansgar Burchardt
+Date: Sat, 17 Jan 2009 18:34:59 +0100
+Subject: Use ~/.simutrans for savegames
+Description:  This patch reverts SVN commit 1937 to make simutrans use
+ ~/.simutrans for savegames instead of ~/simutrans.
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+Index: trunk/simsys.cc
+===================================================================
+--- trunk.orig/simsys.cc
++++ trunk/simsys.cc
+@@ -357,7 +357,7 @@ char const *dr_query_homedir()
+ 	find_directory(B_USER_DIRECTORY, &userDir);
+ 	sprintf(buffer, "%s/simutrans", userDir.Path());
+ #else
+-	sprintf(buffer, "%s/simutrans", getenv("HOME"));
++	sprintf(buffer, "%s/.simutrans", getenv("HOME"));
+ #endif
+ 
+ 	// create directory and subdirectories

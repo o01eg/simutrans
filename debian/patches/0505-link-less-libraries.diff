@@ -1,0 +1,21 @@
+From: Ansgar Burchardt <ansgar@debian.org>
+Date: Wed, 16 Feb 2011 23:01:47 +0100
+Subject: Link less libraries into makeobj
+
+This fixes the following warnings from dpkg-shlibdeps:
+
+  dpkg-shlibdeps: warning: dependency on libz.so.1 could be avoided if "debian/simutrans-makeobj/usr/games/makeobj" were not uselessly linked against it (they use none of its symbols).
+  dpkg-shlibdeps: warning: dependency on libbz2.so.1.0 could be avoided if "debian/simutrans-makeobj/usr/games/makeobj" were not uselessly linked against it (they use none of its symbols).
+Index: trunk/makeobj/Makefile
+===================================================================
+--- trunk.orig/makeobj/Makefile
++++ trunk/makeobj/Makefile
+@@ -26,7 +26,7 @@ LDFLAGS += $(PNG_LDFLAGS)
+ CFLAGS += -DMAKEOBJ
+ CXXFLAGS += -DMAKEOBJ
+ 
+-STD_LIBS += -lz -lbz2 -lpng
++STD_LIBS += -lpng
+ 
+ ifeq ($(OSTYPE),cygwin)
+   OS_INC   ?= -I/usr/include/mingw

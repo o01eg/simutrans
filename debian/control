@@ -1,0 +1,58 @@
+Source: simutrans
+Section: games
+Priority: optional
+Maintainer: Debian Games Team <Pkg-games-devel@alioth-lists.debian.net>
+Uploaders:
+ Clint Adams <clint@debian.org>,
+ Jörg Frings-Fürst <debian@jff.email>
+Build-Depends:
+ debhelper-compat (= 13),
+ libbz2-dev,
+ libpng-dev,
+ libsdl2-dev,
+ libsdl2-mixer-dev,
+ quilt,
+ zlib1g-dev
+Standards-Version: 4.5.1
+Rules-Requires-Root: no
+Homepage: http://www.simutrans.com/
+Vcs-Git: https://salsa.debian.org/games-team/simutrans.git
+Vcs-Browser: https://salsa.debian.org/games-team/simutrans
+
+Package: simutrans
+Architecture: any
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+ simutrans-pak64 (>= 120.0.1),
+ simutrans-data (= ${source:Version})
+Suggests: freepats
+Description: transportation simulator
+ Simutrans is a free transportation simulator: The player operates a
+ transportation company and has to transport goods and passengers between
+ factories and different cities.
+
+Package: simutrans-data
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Description: transportation simulator (base data)
+ Simutrans is a free transportation simulator: The player operates a
+ transportation company and has to transport goods and passengers between
+ factories and different cities.
+ .
+ This package contains the base data.
+
+Package: simutrans-makeobj
+Architecture: any
+Multi-Arch: foreign
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends}
+Description: data file compiler for Simutrans
+ Simutrans is a free transportation simulator: The player operates a
+ transportation company and has to transport goods and passengers between
+ factories and different cities.
+ .
+ This package contains the makeobj program needed to integrate new objects
+ in Simutrans.

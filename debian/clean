@@ -1,0 +1,5 @@
+debian/simutrans.xpm
+makeobj/makeobj
+#config.default
+config.log
+config.status

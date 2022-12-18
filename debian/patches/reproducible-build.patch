@@ -1,0 +1,23 @@
+From: Markus Koschany <apo@debian.org>
+Date: Fri, 20 Nov 2015 16:54:36 +0100
+Subject: reproducible build
+
+Make the build reproducible by removing the __DATE__ macro.
+See also https://wiki.debian.org/ReproducibleBuilds
+---
+ simversion.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Index: trunk/simversion.h
+===================================================================
+--- trunk.orig/simversion.h
++++ trunk/simversion.h
+@@ -52,7 +52,7 @@
+ 
+ #define VERSION_NUMBER QUOTEME(SIM_VERSION_MAJOR) "." QUOTEME(SIM_VERSION_MINOR) SIM_VERSION_PATCH_STRING SIM_VERSION_BUILD_STRING
+ 
+-#define VERSION_DATE __DATE__
++#define VERSION_DATE ""
+ 
+ #define SAVEGAME_PREFIX  "Simutrans "
+ #define XML_SAVEGAME_PREFIX  "<?xml version=\"1.0\"?>"

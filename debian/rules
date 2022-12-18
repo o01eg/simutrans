@@ -1,0 +1,48 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+# debian/rules file for simutrans
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+#export VERBOSE  = 1
+
+export DEB_BUILD_MAINT_OPTIONS=hardening=+all
+
+export CFLAGS   = $(shell dpkg-buildflags --get CFLAGS)
+export CCFLAGS  = $(CFLAGS)
+export CXXFLAGS = $(shell dpkg-buildflags --get CXXFLAGS)
+export CXXFLAGS += -D_FORTIFY_SOURCE=2 -std=gnu++11
+export CPPFLAGS = $(shell dpkg-buildflags --get CPPFLAGS)
+export LDFLAGS  = $(shell dpkg-buildflags --get LDFLAGS)
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	dh_auto_build
+	dh_auto_build --sourcedirectory=makeobj
+
+override_dh_auto_clean:
+	dh_quilt_patch
+	dh_auto_clean
+	$(MAKE) -C makeobj clean
+	$(RM) -r skin
+	$(RM) -r build
+
+override_dh_install-arch:
+	dh_install
+	install -m 755 sim $(CURDIR)/debian/simutrans/usr/games/simutrans
+
+override_dh_install-indep:
+	find simutrans/text -name "*.txt"  -exec iconv -f iso-8859-1 -t utf-8 {} -o {} \;
+	dh_install
+
+override_dh_installchangelogs:
+	dh_installchangelogs simutrans/history.txt
+
+update-translations:
+	dh_testdir
+	wget --post-data "version=0&choice=all&submit=Export!" --delete-after "http://simutrans-germany.com/translator/script/main.php?page=wrap"
+	wget -N http://simutrans-germany.com/translator/data/tab/language_pack-Base+texts.zip
+	unzip -o -d debian/translations language_pack-Base+texts.zip "*.tab"
+	$(RM) language_pack-Base+texts.zip

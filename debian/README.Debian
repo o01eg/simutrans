@@ -1,0 +1,8 @@
+Path for user data
+~~~~~~~~~~~~~~~~~~
+
+The Debian package for simutrans is modified to use ~/.simutrans instead of
+~/simutrans for savegames and other game data.
+
+ -- Ansgar Burchardt <ansgar@43-1.org>  Sun, 18 Jan 2009 14:36:27 +0100
+

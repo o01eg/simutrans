@@ -1,0 +1,490 @@
+simutrans (122.0-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Jörg Frings-Fürst ]
+  * New upstream release.
+  * debian/simutrans-data.install:
+    - Fix missing script directory (Closes: #992160).
+  * debian/copyright:
+    - Fix duplicate globbing patterns.
+    - Add year 2021 to myself.
+  * debian/simutrans-data.lintian-overrides:
+    - Add override for package-contains-documentation-outside-usr-share-doc.
+    - Refresh to new upstream release.
+  * debian/rules:
+    - Add iconv to convert txt into utf-8.
+  * debian/control:
+    - Change to debhelper-compat (=13).
+  * Update debian/translations and convert into utf-8.
+  * Declare compliance with Debian Policy 4.5.1 (No changes needed).
+
+  [ Debian Janitor ]
+  * Set upstream metadata fields: Archive, Repository.
+
+ -- Jörg Frings-Fürst <debian@jff.email>  Mon, 16 Aug 2021 16:26:30 +0200
+
+simutrans (121.0-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Jörg Frings-Fürst ]
+  * New upstream release (Closes: #906204).
+    - Refresh patches.
+  * Declare compliance with Debian Policy 4.5.0 (No changes needed).
+  * Switch to debhelper-compat:
+    - debian/control: change to debhelper-compat (=12).
+    - remove debian/compat.
+  * Switch to mixer-sdl2:
+    - Update debian/control
+    - Update debian/patches/0500-config.diff.
+  * debian/control:
+    - Change team mail address.
+    - Add Rules-Requires-Root: no.
+  * debian/changelog:
+    - Add year 2020 to myself.
+  * debian/simutrans-makeobj.install:
+    - Install makeobj into /usr/games/
+
+ -- Jörg Frings-Fürst <debian@jff.email>  Sat, 02 May 2020 22:01:15 +0200
+
+simutrans (120.4.1-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Jörg Frings-Fürst ]
+  * New upstream release:
+    - Refresh patches:
+      + debian/patches/0005-typo.patch,
+        debian/patches/0100-path_for_game-data.patch,
+        debian/patches/0105-revert-svn-1937.diff,
+        debian/patches/0110-path_max.patch.
+
+  * Declare compliance with Debian Policy 4.3.0 (No changes needed).
+
+  [ Markus Koschany ]
+  * Drop deprecated menu file.
+
+ -- Markus Koschany <apo@debian.org>  Tue, 12 Feb 2019 12:54:48 +0100
+
+simutrans (120.3-2) unstable; urgency=medium
+
+  * debian/control:
+    - Set Architecture back to any (Closes: #903462).
+
+ -- Jörg Frings-Fürst <debian@jff.email>  Tue, 10 Jul 2018 19:42:34 +0200
+
+simutrans (120.3-1) unstable; urgency=medium
+
+  * New upstream release.
+    - Refresh patches.
+  * New debian/patches/0110-path_max.patch:
+    - Define PATH_MAX if not defined.
+  * debian/copyright:
+    - Use secure copyright format URI.
+  * debian/control:
+    - Remove armhf from architectures.
+    - Move Vcs-* to salsa.
+  * Declare compliance with Debian Policy 4.1.5 (No changes needed).
+
+ -- Jörg Frings-Fürst <debian@jff.email>  Sun, 08 Jul 2018 12:47:47 +0200
+
+simutrans (120.2.2-3) unstable; urgency=medium
+
+  [ Jörg Frings-Fürst ]
+  * debian/rules (Closes: #870770):
+    - Fix FTCBFS: Let dh_auto_build pass cross compilers to make.
+      Thanks to Helmut Grohne <helmut@subdivi.de>.
+  * debian/copyright:
+    - Add Markus Koschany to debian/*.
+    - Change to my new email address.
+  * debian/control:
+    - Change to my new email address.
+    - Bump Build-Depends of debhelper to 11.
+    - Change priority to optional.
+  * debian/compat:
+    - Bump compat level to 11.
+  * debian/makeobj.6:
+    - Correct typo.
+  * Declare compliance with Debian Policy 4.1.3 (No changes needed).
+  * New *.lintian-overrides to override the "spelling-error-in-copyright"
+    warning.
+  * Refresh patches/0005-typo.patch.
+
+ -- Jörg Frings-Fürst <debian@jff.email>  Mon, 01 Jan 2018 14:54:37 +0100
+
+simutrans (120.2.2-2) unstable; urgency=medium
+
+  * Team upload.
+  * Update 0500-config.diff. Use sdl_config instead of sdl2_config.
+    This will enable the MIDI music again. Thanks to Julius Andrikonis for the
+    report. (Closes: #869029)
+
+ -- Markus Koschany <apo@debian.org>  Tue, 01 Aug 2017 00:30:13 +0200
+
+simutrans (120.2.2-1) unstable; urgency=medium
+
+  [ Jörg Frings-Fürst ]
+  * New upstream release.
+    - Refresh patches:
+      + 0005-typo.patch
+      + 0100-path_for_game-data.patch
+      + 0105-revert-svn-1937.diff
+      + 0500-config.diff
+      + reproducible-build.patch
+    - Remove useless patch sha1.patch.
+    - Remove now useless get-orig-source from debian/rules
+  * Declare compliance with Debian Policy 4.0.0. (No changes needed).
+  * Refresh debian/copyright.
+
+ -- Jörg Frings-Fürst <debian@jff-webhosting.net>  Sun, 25 Jun 2017 15:41:41 +0200
+
+simutrans (120.1.3+repack-3) unstable; urgency=medium
+
+  [ Jörg Frings-Fürst ]
+  * debian/rules:
+    - Add -std=gnu++11 to CXXFLAGS to prevent FTBFS on some architectures.
+    - Remove useless -lssl -lcrypto from LDFLAGS
+  * debian/control:
+    - Remove useless libssl-dev from Build-Depends.
+
+ -- Jörg Frings-Fürst <debian@jff-webhosting.net>  Thu, 17 Nov 2016 11:03:50 +0100
+
+simutrans (120.1.3+repack-2) unstable; urgency=medium
+
+  * Team upload.
+  * Declare compliance with Debian Policy 3.9.8.
+  * Switch to compat level 10.
+  * Drop 0110-sha1-replacement.diff.
+    We don't need this patch because the original sha1 implementation from Paul
+    E.Jones is free software.
+    See https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=730758 for a
+    clarification.
+  * Add sha1.patch.
+    This is the original upstream version. It is free software. Add a
+    clarification to debian/copyright. This also fixes the FTBFS with OpenSSL
+    1.1.0. (Closes: #828545)
+  * Fix installation path of makeobj and sim binary file.
+  * debian/clean: Ensure that the package can be built twice in a row.
+
+ -- Markus Koschany <apo@debian.org>  Thu, 10 Nov 2016 23:28:04 +0100
+
+simutrans (120.1.3+repack-1) unstable; urgency=medium
+
+  [ Jörg Frings-Fürst ]
+  * New upstream release.
+  * Remove upstream applied 0510-missing_uncommon_mk.patch.
+  * Refresh patches.
+  * debian/rules:
+    - Add -lssl -lcrypto to LDFLAGS to prevent build error.
+  * Update translations.
+  * Update debian/patches/0005-typo.patch.
+  * debian/watch: Bump version to 4 (no changes required).
+  * debian/copyright: Add year 2016.
+
+  [ Markus Koschany ]
+  * Vcs-Git: Use https.
+  * Declare compliance with Debian Policy 3.9.7.
+  * Remove repack.sh and use Files-Excluded mechanism instead.
+
+ -- Jörg Frings-Fürst <debian@jff-webhosting.net>  Mon, 08 Feb 2016 00:10:30 +0100
+
+simutrans (120.1.1+repack-3) unstable; urgency=medium
+
+  * Team upload.
+  * debian/control: Switch to libpng-dev. (Closes: #810208)
+
+ -- Markus Koschany <apo@debian.org>  Thu, 07 Jan 2016 20:03:10 +0100
+
+simutrans (120.1.1+repack-2) unstable; urgency=medium
+
+  [ Jörg Frings-Fürst ]
+  * Move makeobj from /usr/games to /usr/lib/simutrans (Closes: #780724).
+
+  [ Markus Koschany ]
+  * Add reproducible-build.patch, remove the __DATE__ macro and make the build
+    reproducible.
+
+ -- Jörg Frings-Fürst <debian@jff-webhosting.net>  Wed, 18 Nov 2015 12:17:29 +0100
+
+simutrans (120.1.1+repack-1) unstable; urgency=medium
+
+  [ Jörg Frings-Fürst ]
+  * New upstream release (Closes: #708837).
+  * Upload to unstable.
+  * debian/control:
+    - Add myself as new uploader (Closes: #783887).
+    - Bump Standards-Version to 3.9.6 (No changes required).
+    - Rewrite Depends.
+    - Rewrite Vcs* to canonical URI.
+    - Remove obsolete Pre-Depends.
+  * debian/source/options:
+    - Removed because xz is now standard compression.
+  * debian/rules:
+    - Remove override_dh_builddeb because compression xz is now standard.
+    - Remove obsolete nettools and skin.
+    - To prevent FTBFS with sbuild add dh_quilt_patch to
+      override_dh_auto_clean.
+    - Remove BROKEN_LANG loop.
+    - Split override_dh_install into override_dh_install-arch and
+      override_dh_install-indep.
+  * debian/copyright:
+    - Add myself to debian/*
+    - Remove obsolete utils/dr_rdgif.c.
+    - Rewrite for the new upstream release.
+  * Remove debian/patches/sha1-replacement.diff.
+  * Remove double debian/patches/path-for-game-data.diff.
+  * Refresh debian/patches/*.
+  * Rewrite source handling:
+    - New debian/repack.sh.
+    - debian/watch: add parameter "debian debian/repack.sh".
+    - Rewrite debian/README.source.
+  * New d/p/0510-missing_uncommon_mk.patch to include missing uncommon.mk.
+  * Update debian/translations.
+  * New debian/gbp.conf.
+  * Remove convert of simutrans.xpm and install it direct (Closes: #804666).
+    - debian/rules: Remove convert call.
+    - debian/control: Remove imagemagick from Build-Depends.
+    - New debian/pixmaps/simutrans.xpm
+
+ -- Jörg Frings-Fürst <debian@jff-webhosting.net>  Sat, 14 Nov 2015 19:01:56 +0100
+
+simutrans (111.3.1-1) experimental; urgency=low
+
+  * New upstream release.
+  * Make simutrans-data and simutrans-makeobj Multi-Arch: foreign.
+
+ -- Ansgar Burchardt <ansgar@debian.org>  Thu, 02 Aug 2012 17:41:50 +0200
+
+simutrans (111.2.2-1) unstable; urgency=low
+
+  * New upstream release.
+    + Includes fix for build failure. (Closes: #669475)
+  * Backport patch to add missing include to csv.cc.
+    + new patch: 0001-Add-stdlib-to-csv.h.patch
+  * Fix Endianness issue with SHA1 replacement. (LP: #931181)
+  * Build-depend on libpng-dev instead of libpng12-dev. (Closes: #662502)
+  * Use debhelper compat level 9.
+  * Use copyright format 1.0.
+  * Bumped Standards-Version to 3.9.3.
+
+ -- Ansgar Burchardt <ansgar@debian.org>  Sun, 29 Apr 2012 14:40:06 +0200
+
+simutrans (111.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/rules: Update get-orig-source target for new upstream release.
+  * Use xz compression for source and binary packages.
+  * Use override_* targets to simplify debian/rules.
+
+ -- Ansgar Burchardt <ansgar@debian.org>  Thu, 03 Nov 2011 19:59:02 +0100
+
+simutrans (110.0.1-3) unstable; urgency=low
+
+  * Fix compiling with gcc-4.6. (Closes: #625058)
+    + new patch: 0001-jspaces-fix-compiling-with-gcc-4.6.0.patch
+  * Make the build process more verbose.
+  * Use hardening flags from hardening-includes.
+  * Extend txt_convoi_count and txt_convoi_value. (LP: #760999)
+    + new patch: 0001-Extend-txt_convoi_count.patch
+    + new patch: extend-txt_convoi_value.patch
+  * Bump Standards-Version to 3.9.2 (no changes).
+
+ -- Ansgar Burchardt <ansgar@debian.org>  Fri, 06 May 2011 00:04:47 +0200
+
+simutrans (110.0.1-2) unstable; urgency=low
+
+  * Add changes upstream decided to add after uploading the first time.
+
+ -- Ansgar Burchardt <ansgar@debian.org>  Mon, 14 Mar 2011 20:25:13 +0100
+
+simutrans (110.0.1-1) unstable; urgency=low
+
+  * New upstream release.
+  * Remove backported patches introduced in 110.0-3.
+  * debian/rules: Update get-orig-source for new upstream release.
+
+ -- Ansgar Burchardt <ansgar@debian.org>  Fri, 11 Mar 2011 11:30:50 +0100
+
+simutrans (110.0-3) unstable; urgency=low
+
+  * Apply upstream patches to fix crash on resize.
+    New patches: 0001-FIX-crashes-with-window-resizing-under-SDL.patch,
+    0002-Code-treat-SYSTEM_RESIZE-event-separate-from-other-e.patch.
+
+ -- Ansgar Burchardt <ansgar@debian.org>  Fri, 25 Feb 2011 16:47:49 +0100
+
+simutrans (110.0-2) unstable; urgency=low
+
+  * Do not use compiler flags specific to i386 and amd64. (Closes: #613962)
+  * Use dpkg-buildflags to set compiler flags.
+
+ -- Ansgar Burchardt <ansgar@debian.org>  Fri, 18 Feb 2011 17:52:11 +0100
+
+simutrans (110.0-1) unstable; urgency=low
+
+  * New upstream release.
+    + Improved wording of license information. (Closes: #590734)
+    + No longer shortens large money amounts. (Closes: #576440)
+    + No longer claims land is owned by another player when building tram
+      tracks on a road with a vehicle on it. (Closes: #609938)
+    + Passengers now get routed correctly. (Closes: #593536)
+    + Adds option to use 12am/pm instead of 0am/pm. (Closes: #590834)
+  * Adapt debian/rules and patches for new upstream release.
+  * Add replacement for non-free SHA-1 implementation.
+    + new patch: sha1-replacement.diff
+  * Link less libraries into makeobj.
+    + new patch: link-less-libraries.diff
+  * debian/copyright: Add copyright information for utils/dr_rdgif.c.
+  * Use source format 3.0 (quilt).
+  * debian/control: Remove DM-Upload-Allowed.
+  * Update my email address.
+
+ -- Ansgar Burchardt <ansgar@debian.org>  Wed, 16 Feb 2011 23:58:13 +0100
+
+simutrans (102.2.2~ds1-1) unstable; urgency=low
+
+  * New upstream release.
+    + debian/rules: Update get-orig-source target.
+    + debian/control: Add build-dep on libbz2-dev.
+    + debian/control: Bump dependency on simutrans-pak64 to 102.2.1.
+      See also #565493.
+    + Refresh patches.
+  * Update translations.
+    + debian/rules: Update list of excluded languages.
+  * Correct spelling errors.
+    + new patch: spelling.patch
+  * Bump Standards-Version to 3.8.4 (no changes).
+
+ -- Ansgar Burchardt <ansgar@43-1.org>  Fri, 12 Mar 2010 09:23:35 +0900
+
+simutrans (102.2.1~ds1-1) unstable; urgency=low
+
+  * New upstream release.
+    + Allows waypoints for tram on city roads again. (Closes: #555924)
+    + Refresh patches.
+    + Update translations.
+  * debian/watch: Update Debian version mangling.
+  * Do not use "Artistic" as short name for the license. (Closes: #524732)
+  * Use SDL Mixer backend to enable MIDI playback.
+    (Closes: #552564) (LP: #424404)
+    + MIDI playback needs a patch set, so suggest the "freepats" package.
+  * debian/control: Add DM-Upload-Allowed: yes.
+
+ -- Ansgar Burchardt <ansgar@43-1.org>  Tue, 29 Dec 2009 00:22:27 +0900
+
+simutrans (102.2+svn2786-1) unstable; urgency=low
+
+  * New upstream release.
+    + Refresh patches.
+    + Update translations.
+  * debian/rules: Add get-orig-source target.
+  * debian/rules: Add update-translations target.
+  * debian/README.source: Document get-orig-source and update-translations
+    targets.
+  * Bump Standards-Version to 3.8.3 (no changes).
+
+ -- Ansgar Burchardt <ansgar@43-1.org>  Sun, 18 Oct 2009 15:29:14 +0900
+
+simutrans (102.0-1) unstable; urgency=low
+
+  * New upstream release.
+    + Refresh patches.
+    + Update translations.
+
+ -- Ansgar Burchardt <ansgar@43-1.org>  Fri, 06 Mar 2009 20:40:03 +0100
+
+simutrans (101.0-2) unstable; urgency=low
+
+  * Upload to unstable.
+
+ -- Clint Adams <schizo@debian.org>  Sun, 01 Mar 2009 13:41:25 -0500
+
+simutrans (101.0-1) experimental; urgency=low
+
+  * New upstream release.
+    + Update translations.
+  * Require latest version of simutrans-pak64 (101.0).
+  * Refresh patches, remove those applied upstream.
+  * debian/rules: Add `-alpha on' when using convert to preserve transparency.
+  * debian/simutrans.desktop: Add Icon key (LP: #314093).
+  * Add patch revert-svn-1937.diff to continue using ~/.simutrans for
+    savegames.  Document this in README.Debian.
+  * debian/copyright: Add additional copyright holders, move license text to
+    its own section.
+
+ -- Ansgar Burchardt <ansgar@43-1.org>  Sun, 18 Jan 2009 19:46:52 +0100
+
+simutrans (100.0+ds1-4) unstable; urgency=low
+
+  * debian/rules: Remove `configure' target
+  * debian/control: Add `Depends: ${misc:Depends}' for simutrans-data
+    and simutrans-makeobj.
+  * Apply upstream fix for power-bridges on vertical slopes
+    (Closes: #507307)
+
+ -- Ansgar Burchardt <ansgar@43-1.org>  Mon, 15 Dec 2008 00:07:29 +0100
+
+simutrans (100.0+ds1-3) unstable; urgency=low
+
+  * config.diff: Use <endian.h> header to detect endianness
+    (thanks to Peter De Wachter)
+  * debian/watch: Remove "+ds1" from Debian version number
+  * Omit translations for be (Belaruskaja), cn (Sim. Chinese), id (Bahasa),
+    no (Norsk) because they are very incomplete or otherwise broken
+    (Closes: #481266)
+  * Fix makeobj portability issues (Closes: #493409)
+    + 01_png.patch: png_uint_32 might actually be 64bit on some archs
+      (thanks to Peter Green)
+    + 02_makeobj_fixes.patch, 03_makeobj_cleanup.patch: Add proper
+      serialization code instead of dumping in-memory objects
+      (thanks to Peter De Wachter)
+
+ -- Ansgar Burchardt <ansgar@43-1.org>  Tue, 19 Aug 2008 00:06:30 +0200
+
+simutrans (100.0+ds1-2) unstable; urgency=low
+
+  * Remove cast from `const char*' to `int' in simconvoi.cc
+    + new patch fix_casts.diff
+
+ -- Ansgar Burchardt <ansgar@43-1.org>  Wed, 02 Jul 2008 19:00:03 +0200
+
+simutrans (100.0+ds1-1) unstable; urgency=low
+
+  [ Ansgar Burchardt ]
+  * New Upstream release
+    + makeobj works on big-endian archs (Closes: #472326)
+    + fix crash when calling 'makeobj dump' (Closes: #473245)
+    + fix crash if starting_year is setto a low value
+      and crash in simcity.cc(stadt_t::gib_zufallspunkt)
+      (Closes: #481264)
+  * Repackage source
+    + Upstream relicensed simsys.h, sound/no_sound.cc under a free license
+  * Add debuging symbols to makeobj
+  * Link makeobj with g++ instead of ld (should fix build on mipsel)
+  * Use debhelper 7 to clean up debian/rules
+  * Move translations to debian/translations instead of a patch
+  * Use noopt, debug from DEB_BUILD_OPTIONS
+  * debian/control: Change Vcs-* fields to point to Git repository
+  * Bump Standards Version to 3.8.0
+    + Add debian/README.source
+  * Convert debian/copyright to proposed machine-readable format
+  * Use compiler flags passed by dpkg-buildpackage
+
+  [ Gonéri Le Bouder ]
+  * Update the copyright file
+
+ -- Ansgar Burchardt <ansgar@43-1.org>  Tue, 01 Jul 2008 22:11:28 +0200
+
+simutrans (99.18~0.svn1664-2) unstable; urgency=low
+
+  * Fix segfault on startup (Closes: #471244)
+    + new patch: fix-stdarg-calls
+
+ -- Ansgar Burchardt <ansgar@43-1.org>  Mon, 17 Mar 2008 12:13:40 +0100
+
+simutrans (99.18~0.svn1664-1) unstable; urgency=low
+
+  * Initial release (Closes: #437627)
+
+ -- Ansgar Burchardt <ansgar@43-1.org>  Fri, 29 Feb 2008 11:55:58 +0100

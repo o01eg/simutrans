@@ -1,0 +1,49 @@
+.\"                                      Hey, EMACS: -*- nroff -*-
+.TH SIMUTRANS 6 "February 25, 2008"
+.SH NAME
+simutrans \- transportation simulator
+.SH SYNOPSIS
+.B simutrans
+.RI [ options ]
+.SH DESCRIPTION
+This manual page documents briefly the
+.B simutrans
+command.
+.PP
+\fBsimutrans\fP is a freeware transportation simulator that runs under Windows,
+Linux, and a few other operating systems (Mac with Intel processors, BEOS).
+.PP
+You take on the role of operating a transportation company, and your goal
+is to get goods of various kinds, as well as passengers and mail, from one
+place to the next.
+.PP
+Don't be fooled by the tile-based graphics - this is a very complex game,
+and it is constantly evolving, with new features being added. It is a
+living game, and consistently being made better and better.
+.SH OPTIONS
+This is a list of the most useful options.  A list of all options can
+be found in /usr/share/doc/simutrans/readme.txt.gz.
+.TP
+\fB\-screensize\fP \fIWIDTH\fPx\fIHEIGHT
+Set screensize to WIDTHxHEIGHT.  Widths not a multiple of 16 may cause
+problems.
+.TP
+.B \-fullscreen
+Run in full screen mode.
+.TP
+.B \-freeplay
+Run Simutrans in free playing mode (you cannot go bankrupt).
+.TP
+.B \-nosound
+Turn sound off.
+.TP
+\fB\-objects \fIpath
+Use alternative PAK file set located in \fIpath\fP.  The path \fBmust\fP
+end with a /.
+.SH SEE ALSO
+/usr/share/doc/simutrans, http://www.simutrans.com/
+.SH AUTHOR
+Simutrans was written by Hansjoerg Malthaner and the Simutrans Team.
+.PP
+This manual page was written by Ansgar Burchardt <ansgar@debian.org>,
+for the Debian project (but may be used by others).

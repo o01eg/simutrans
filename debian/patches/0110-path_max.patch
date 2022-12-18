@@ -1,0 +1,20 @@
+Description: add define for PATH_MAX if not defined
+Author: Jörg Frings-Fürst <debian@jff.email>
+Last-Update: 2018-04-02
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+Index: trunk/simsys.cc
+===================================================================
+--- trunk.orig/simsys.cc
++++ trunk/simsys.cc
+@@ -41,6 +41,10 @@
+ #	endif
+ #endif
+ 
++#if !defined PATH_MAX
++    #define PATH_MAX 4096
++#endif
++
+ 
+ struct sys_event sys_event;
+ 

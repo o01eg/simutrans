@@ -1,0 +1,62 @@
+.TH MAKEOBJ 6 "February 25, 2008"
+.SH NAME
+makeobj \- compile data sets for Simutrans
+.SH SYNOPSIS
+\fBmakeobj\fP [ quiet ] capabilities
+.P
+\fBmakeobj\fP [ quiet ] pak [\fIpak-file dat-file...\fP]
+.P
+\fBmakeobj\fP [ quiet ] pak128 [\fIpak-file dat-file...\fP]
+.P
+\fBmakeobj\fP [ quiet ] list \fIpak-file...
+.P
+\fBmakeobj\fP [ quiet ] dump \fIpak-file pak-file...
+.P
+\fBmakeobj\fP [ quiet ] merge \fIpak-file pak-file...
+.P
+\fBmakeobj\fP [ quiet ] extract \fIpak-file
+
+.SH DESCRIPTION
+This manual page documents briefly the
+.B makeobj
+command.
+.SH OPTIONS
+.TP
+.B capabilities
+Gives the list of objects, this program can read.
+.TP
+\fBpak \fIpak-file dat-file...
+Creates a ready to use pak file for Simutrans from the dat files.
+
+If the file names are omitted, makeobj defaults to all dat files under
+the current directory.
+.TP
+\fBpak128 \fIpak-file dat-file...
+Creates a special pak file for 128x128 images.
+.TP
+\fBlist \fIpak-file...
+Lists the contents of the given pak files.
+.TP
+\fBdump \fIpak-file pak-file...
+List the internal nodes of a file.
+.TP
+\fBmerge \fIpak-file pak-file...
+Merges multiple pak files into one new pak file.
+.TP
+\fBextract \fIpak-file
+Creates single files from multiple pak file.
+.P
+If the \fBquiet\fP option is given as the first argument the copyright
+message will be omitted.
+
+If a file name ends with a slash, a directory is searched rather than
+a file.
+
+.SH "SEE ALSO"
+.BR simutrans (6),
+http://www.simutrans.com/
+.SH AUTHOR
+Simutrans was written by Hansjoerg Malthaner and the Simutrans Team.
+.PP
+This manual page was written by Ansgar Burchardt <ansgar@debian.org>,
+for the Debian project (but may be used by others).

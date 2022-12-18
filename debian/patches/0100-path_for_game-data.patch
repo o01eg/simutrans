@@ -1,0 +1,22 @@
+Description: Set path for game data
+ based on path_for_game-data.diff
+Author: Jörg Frings-Fürst <debian@jff-webhosting.net>
+Last-Update: 2015-05-16
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+Index: trunk/simmain.cc
+===================================================================
+--- trunk.orig/simmain.cc
++++ trunk/simmain.cc
+@@ -513,8 +513,9 @@ int simu_main(int argc, char** argv)
+ 		strcat( env_t::program_dir, PATH_SEPARATOR );
+ 	}
+ 	else {
+-		strcpy( env_t::program_dir, argv[0] );
+-		*(strrchr( env_t::program_dir, PATH_SEPARATOR[0] )+1) = 0;
++//		strcpy( env_t::program_dir, argv[0] );
++//		*(strrchr( env_t::program_dir, PATH_SEPARATOR[0] )+1) = 0;
++		strcpy(env_t::program_dir, "/usr/share/games/simutrans/");
+ 
+ #ifdef __APPLE__
+ 		// change working directory from binary dir to bundle dir

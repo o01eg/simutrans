@@ -1,0 +1,6 @@
+It is a good idea to update the translations in debian/translations after
+download the source tarball.  Just run
+
+ $ make -f debian/rules update-translations
+
+to do so.

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Simutrans
+Comment=Transportation simulator
+Comment[de]=Logistiksimulation
+Exec=simutrans
+Icon=simutrans
+Terminal=false
+Type=Application
+Categories=Game;Simulation;
+Keywords=simulator;transportation;

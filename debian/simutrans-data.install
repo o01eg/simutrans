@@ -1,0 +1,8 @@
+#skin/* usr/share/games/simutrans/skin
+simutrans/config/simuconf.tab usr/share/games/simutrans/config
+simutrans/font/* usr/share/games/simutrans/font
+simutrans/music/*.mid simutrans/music/*.tab usr/share/games/simutrans/music
+simutrans/text/?? usr/share/games/simutrans/text
+simutrans/themes usr/share/games/simutrans
+simutrans/script/* usr/share/games/simutrans/script
+debian/translations/*.tab usr/share/games/simutrans/text
