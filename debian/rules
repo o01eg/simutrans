@@ -25,7 +25,7 @@ override_dh_auto_build:
 override_dh_auto_clean:
 	dh_quilt_patch
 	dh_auto_clean
-	$(MAKE) -C makeobj clean
+	$(MAKE) -C src/makeobj clean
 	$(RM) -r skin
 	$(RM) -r build
 

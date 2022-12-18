@@ -3,10 +3,10 @@ Author: Jörg Frings-Fürst <debian@jff.email>
 Last-Update: 2018-04-02
 ---
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
-Index: trunk/simsys.cc
+Index: trunk/src/simutrans/simsys.cc
 ===================================================================
---- trunk.orig/simsys.cc
-+++ trunk/simsys.cc
+--- trunk/src/simutrans/simsys.cc
++++ trunk/src/simutrans/simsys.cc
 @@ -41,6 +41,10 @@
  #	endif
  #endif

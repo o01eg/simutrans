@@ -6,12 +6,12 @@ This fixes the following warnings from dpkg-shlibdeps:
 
   dpkg-shlibdeps: warning: dependency on libz.so.1 could be avoided if "debian/simutrans-makeobj/usr/games/makeobj" were not uselessly linked against it (they use none of its symbols).
   dpkg-shlibdeps: warning: dependency on libbz2.so.1.0 could be avoided if "debian/simutrans-makeobj/usr/games/makeobj" were not uselessly linked against it (they use none of its symbols).
-Index: trunk/makeobj/Makefile
+Index: src/simutrans/makeobj/Makefile
 ===================================================================
---- trunk.orig/makeobj/Makefile
-+++ trunk/makeobj/Makefile
+--- trunk/src/makeobj/Makefile
++++ trunk/src/makeobj/Makefile
 @@ -26,7 +26,7 @@ LDFLAGS += $(PNG_LDFLAGS)
- CFLAGS += -DMAKEOBJ
+ # Absolutely essential
  CXXFLAGS += -DMAKEOBJ
  
 -STD_LIBS += -lz -lbz2 -lpng

@@ -3,10 +3,10 @@ Author: Jörg Frings-Fürst <debian@jff-webhosting.net>
 Last-Update: 2018-01-01
 ---
 This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
-Index: trunk/gui/money_frame.cc
+Index: trunk/src/simutrans/gui/money_frame.cc
 ===================================================================
---- trunk.orig/gui/money_frame.cc
-+++ trunk/gui/money_frame.cc
+--- trunk/src/simutrans/gui/money_frame.cc
++++ trunk/src/simutrans/gui/money_frame.cc
 @@ -455,7 +455,7 @@ void money_frame_t::update_labels()
  	// update headquarter button
  	headquarter.disable();
@@ -16,10 +16,10 @@ Index: trunk/gui/money_frame.cc
  		headquarter.set_text( "Configure AI" );
  		headquarter.enable();
  	}
-Index: trunk/network/network_cmd_ingame.cc
+Index: trunk/src/simutrans/network/network_cmd_ingame.cc
 ===================================================================
---- trunk.orig/network/network_cmd_ingame.cc
-+++ trunk/network/network_cmd_ingame.cc
+--- trunk/src/simutrans/network/network_cmd_ingame.cc
++++ trunk/src/simutrans/network/network_cmd_ingame.cc
 @@ -1210,7 +1210,7 @@ void nwc_tool_t::do_command(karte_t *wel
  		tool->exit(player);
  	}
@@ -29,32 +29,10 @@ Index: trunk/network/network_cmd_ingame.cc
  	}
  
  	// callback to script here
-Index: trunk/script/api/api_command.cc
+Index: trunk/src/simutrans/tool/simtool.cc
 ===================================================================
---- trunk.orig/script/api/api_command.cc
-+++ trunk/script/api/api_command.cc
-@@ -54,7 +54,7 @@ SQInteger command_constructor(HSQUIRRELV
- SQInteger param<call_tool_init>::push(HSQUIRRELVM vm, call_tool_init v)
- {
- 	if (v.error) {
--		return sq_raise_error(vm, *v.error ? v.error : "Strange error occured");
-+		return sq_raise_error(vm, *v.error ? v.error : "Strange error occurred");
- 	}
- 	// create tool, if necessary, delete on exit
- 	std::auto_ptr<tool_t> our_tool;
-@@ -181,7 +181,7 @@ tool_t * call_tool_base_t::create_tool()
- SQInteger param<call_tool_work>::push(HSQUIRRELVM vm, call_tool_work v)
- {
- 	if (v.error) {
--		return sq_raise_error(vm, *v.error ? v.error : "Strange error occured");
-+		return sq_raise_error(vm, *v.error ? v.error : "Strange error occurred");
- 	}
- 	// create tool, if necessary, delete on exit
- 	std::auto_ptr<tool_t> our_tool;
-Index: trunk/simtool.cc
-===================================================================
---- trunk.orig/simtool.cc
-+++ trunk/simtool.cc
+--- trunk/src/simutrans/tool/simtool.cc
++++ trunk/src/simutrans/tool/simtool.cc
 @@ -6250,7 +6250,7 @@ bool tool_make_stop_public_t::init( play
  
  const char* tool_make_stop_public_t::get_tooltip(const player_t *) const
@@ -64,29 +42,3 @@ Index: trunk/simtool.cc
  	return toolstr;
  }
  
-Index: trunk/makeobj/makeobj.cc
-===================================================================
---- trunk.orig/makeobj/makeobj.cc
-+++ trunk/makeobj/makeobj.cc
-@@ -193,7 +193,7 @@ int main(int argc, char* argv[])
- 		"      with QUIET as first arg copyright message will be omitted\n"
- 		"\n"
- 		"      with VERBOSE as first arg also unused lines\n"
--		"      and unassinged entrys are printed\n"
-+		"      and unassinged entries are printed\n"
- 		"\n"
- 		"      DEBUG dumps extended information about the pak process.\n"
- 		"          Source: interpreted line from .dat file\n"
-Index: trunk/script/script.cc
-===================================================================
---- trunk.orig/script/script.cc
-+++ trunk/script/script.cc
-@@ -71,7 +71,7 @@ void script_vm_t::errorfunc(HSQUIRRELVM
- 	if (strcmp(s, "<error>")==0) {
- 		// start of error message
- 		buf.clear();
--		buf.printf("<st>An error occured within a script!</st><br>\n");
-+		buf.printf("<st>An error occurred within a script!</st><br>\n");
- 	}
- 	else if (strcmp(s, "</error>")==0) {
- 		// end of error message

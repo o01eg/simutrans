@@ -8,10 +8,10 @@ See also https://wiki.debian.org/ReproducibleBuilds
  simversion.h | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-Index: trunk/simversion.h
+Index: src/simutrans/simversion.h
 ===================================================================
---- trunk.orig/simversion.h
-+++ trunk/simversion.h
+--- trunk/src/simutrans/simversion.h
++++ src/simutrans/simversion.h
 @@ -52,7 +52,7 @@
  
  #define VERSION_NUMBER QUOTEME(SIM_VERSION_MAJOR) "." QUOTEME(SIM_VERSION_MINOR) SIM_VERSION_PATCH_STRING SIM_VERSION_BUILD_STRING

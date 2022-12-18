@@ -1,6 +1,6 @@
 0005-typo.patch
 #0105-revert-svn-1937.diff
-0100-path_for_game-data.patch
+#0100-path_for_game-data.patch
 0500-config.diff
 0505-link-less-libraries.diff
 #0510-missing_uncommon_mk.patch
