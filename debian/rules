@@ -3,8 +3,8 @@
 # debian/rules file for simutrans
 
 # Uncomment this to turn on verbose mode.
-#export DH_VERBOSE=1
-#export VERBOSE  = 1
+export DH_VERBOSE=1
+export VERBOSE  = 1
 
 export DEB_BUILD_MAINT_OPTIONS=hardening=+all
 
@@ -16,16 +16,15 @@ export CPPFLAGS = $(shell dpkg-buildflags --get CPPFLAGS)
 export LDFLAGS  = $(shell dpkg-buildflags --get LDFLAGS)
 
 %:
-	dh $@
+	dh $@ --buildsystem=cmake
 
-override_dh_auto_build:
-	dh_auto_build
-	dh_auto_build --sourcedirectory=makeobj
+override_dh_auto_configure:
+	CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)" CPPFLAGS="$(CPPFLAGS)" CXXFLAGS="$(CXXFLAGS)" \
+	dh_auto_configure -- -DCMAKE_BUILD_TYPE=RelWithDebInfo -DOPTION_BUNDLE_LIBRARIES=ON
 
 override_dh_auto_clean:
 	dh_quilt_patch
 	dh_auto_clean
-	$(MAKE) -C src/makeobj clean
 	$(RM) -r skin
 	$(RM) -r build
 
